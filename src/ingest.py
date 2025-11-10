@@ -25,20 +25,13 @@ class Ingest:
 
         # Step 2: Transform to RDF
         print("\n[2/2] Transforming to RDF...")
-        all_printings_path = config.DATA_DIR / "AllPrintings.json"
+        all_printings_path = config.ALL_PRINTINGS_FILEPATH
 
         if not all_printings_path.exists():
             print("Error: AllPrintings.json not found after extraction.")
             return False
 
-        print("Loading AllPrintings.json...")
-        json_data = self.transformer.load_json_data(all_printings_path)
-
-        print("Transforming to RDF...")
-        self.transformer.transform_all_printings(json_data)
-
-        print("Saving to Turtle file...")
-        self.transformer.save_to_file(config.RDF_FILEPATH)
+        self.transformer.transform()
 
         print("\n" + "=" * 60)
         print("Ingestion complete!")
