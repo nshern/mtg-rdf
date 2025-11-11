@@ -27,8 +27,26 @@ class Transformer:
     def add_card(self, card_info, set_name):
         card_uri = URIRef(MTGO + f"card/{card_info['uuid']}")
 
-        # Add RDF type for the card
+        # Valid card type classes defined in the MTG ontology
+        VALID_TYPES = {
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Instant",
+            "Land",
+            "Sorcery",
+        }
+
+        # Always add base Card type (explicit is better than implicit)
         self.graph.add((card_uri, RDF.type, MTGO.Card))
+
+        # Also add specific type classes (Land, Creature, Artifact, etc.)
+        if "types" in card_info:
+            for card_type in card_info["types"]:
+                # Only add if it's a valid ontology class
+                if card_type in VALID_TYPES:
+                    type_class = MTGO[card_type]
+                    self.graph.add((card_uri, RDF.type, type_class))
 
         # Basic card info
         if "name" in card_info:
