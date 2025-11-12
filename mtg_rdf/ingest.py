@@ -1,8 +1,8 @@
 """Ingest class that orchestrates the extraction and transformation pipeline."""
 
-import config
-from extractor import Extractor
-from transformer import Transformer
+from . import config
+from .extractor import Extractor
+from .transformer import Transformer
 
 
 class Ingest:

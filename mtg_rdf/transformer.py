@@ -1,6 +1,6 @@
 """Transformer class for converting MTG JSON data to RDF."""
 
-from config import ALL_PRINTINGS_FILEPATH, RDF_FILEPATH
+from .config import ALL_PRINTINGS_FILEPATH, RDF_FILEPATH
 import json
 from rdflib import Graph, Namespace, Literal, URIRef, RDF, XSD
 from tqdm import tqdm

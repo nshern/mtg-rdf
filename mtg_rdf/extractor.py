@@ -1,6 +1,6 @@
 import requests
-import config
-from config import META_URL, ALL_PRINTINGS_URL, DATA_DIR, RDF_FILEPATH, META_FILEPATH, ALL_PRINTINGS_FILEPATH
+from . import config
+from .config import META_URL, ALL_PRINTINGS_URL, DATA_DIR, RDF_FILEPATH, META_FILEPATH, ALL_PRINTINGS_FILEPATH
 import json
 
 
