@@ -1,6 +1,6 @@
 # MTG RDF
 
-Convert Magic: The Gathering card data from MTGJSON to RDF/Turtle format.
+A CLI tool to convert Magic: The Gathering card data from MTGJSON to RDF/Turtle format.
 
 ## Setup
 
@@ -12,12 +12,22 @@ uv sync
 
 **Full pipeline (extract + transform):**
 ```bash
-uv run python src/ingest.py
+uv run mtg-rdf --ingest
 ```
 
-**Transform only (if you already have AllPrintings.json):**
+**Extract only (download MTGJSON data):**
 ```bash
-uv run python src/transformer.py
+uv run mtg-rdf --extract
+```
+
+**Transform only (convert to RDF/Turtle):**
+```bash
+uv run mtg-rdf --transform
+```
+
+**Help:**
+```bash
+uv run mtg-rdf --help
 ```
 
 ## Output
